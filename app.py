@@ -3,8 +3,9 @@ import pickle
 import requests
 from requests.adapters import HTTPAdapter
 from requests.packages.urllib3.util.retry import Retry
+import os
 
-app = Flask(__name__)
+app = Flask(_name_)
 
 def fetch_poster(movie_id):
     url = "https://api.themoviedb.org/3/movie/{}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US".format(movie_id)
@@ -69,5 +70,6 @@ def index():
         recommendations = zip(recommended_movie_names, recommended_movie_posters)
     return render_template('index.html', movie_list=movie_list, recommendations=recommendations)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if _name_ == '_main_':
+    port = int(os.environ.get('PORT', 5000))
+    app.run(debug=True, host='0.0.0.0', port=port)
