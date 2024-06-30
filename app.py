@@ -54,8 +54,8 @@ def recommend(movie):
 
 # Load the model and data
 print("Loading models")
-movies = pickle.load(open('model/movie_list.pkl', 'rb'))
-similarity = pickle.load(open('model/similarity.pkl', 'rb'))
+movies = pickle.load(open('movie_list.pkl', 'rb'))
+similarity = pickle.load(open('similarity.pkl', 'rb'))
 print("Models loaded")
 
 @app.route('/', methods=['GET', 'POST'])
